@@ -5,7 +5,7 @@ public class Department {
     private Library library;
     private ArrayList<Edition> editions;
 
-    // Constructor
+    // Constructor это специальный метод, который вызывается при создании объекта класса.
     public Department(String name, Library library) {
         this.name = name;
         this.library = library;
