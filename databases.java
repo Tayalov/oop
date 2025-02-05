@@ -1,7 +1,7 @@
 import java.sql.*;
 
 public class databases{
-    private static final String URL = "jdbc:mysql://localhost:3306/university";
+    private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
     private static final String USER = "root";
     private static final String PASSWORD = "password";
 

@@ -17,7 +17,7 @@ public class gui extends JFrame {
         setLayout(new BorderLayout());
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/LibraryDB", "root", "password");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "root", "password");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Error connecting to database: " + e.getMessage());
             System.exit(1);
@@ -241,23 +241,20 @@ public class gui extends JFrame {
 
         return panel;
     }
-
-    // Refresh the Library Table
     private void refreshLibraries() {
         refreshTable("SELECT * FROM Library", libraryTable);
     }
 
-    // Refresh the Department Table
+
     private void refreshDepartments() {
         refreshTable("SELECT * FROM Department", departmentTable);
     }
 
-    // Refresh the Edition Table
     private void refreshEditions() {
         refreshTable("SELECT * FROM Edition", editionTable);
     }
 
-    // Refresh Table Data
+
     private void refreshTable(String query, JTable table) {
         try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
             DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -311,7 +308,6 @@ public class gui extends JFrame {
         }
     }
 
-    // Main Method to Run the Application
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             gui gui = new gui();
