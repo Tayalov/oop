@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Library {
     private String name;
     private int maxBooks;
+    private Library library;
     private ArrayList<Department> departments;
 
     // Constructor
@@ -11,7 +12,17 @@ public class Library {
         this.maxBooks = maxBooks;
         this.departments = new ArrayList<>();
     }
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getMaxBooks() {
+        return maxBooks;
+    }
     public void addDepartment(Department department) {
         departments.add(department);
     }
